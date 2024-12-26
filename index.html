@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artificial Intelligence & Digital Media</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #283593;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        header:hover {
+            background-color: #3949ab;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1a237e;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #3949ab;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 20px;
+            background-color: #e8eaf6;
+            animation: fadeIn 2s;
+        }
+
+        .card {
+            background: white;
+            margin: 10px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUp 1s forwards;
+        }
+
+        .card:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.9s;
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #283593;
+            color: white;
+            padding: 10px 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #283593;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #3949ab;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const reveals = document.querySelectorAll(".reveal");
+
+            const revealOnScroll = () => {
+                reveals.forEach((reveal) => {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    const revealPoint = 150;
+
+                    if (elementTop < windowHeight - revealPoint) {
+                        reveal.classList.add("visible");
+                    }
+                });
+            };
+
+            window.addEventListener("scroll", revealOnScroll);
+            revealOnScroll();
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Artificial Intelligence & Digital Media</h1>
+        <p>Exploring the intersection of cutting-edge AI and creative digital content</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="intro" id="about">
+        <h2>About</h2>
+        <p>
+            Artificial Intelligence is revolutionizing the way we create, interact with, and consume digital media.
+            This site explores innovative applications, creative experiments, and how AI is shaping the future of media.
+        </p>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+
+        <div class="card reveal">
+            <h3>Project 1: AI-Generated Art</h3>
+            <p>
+                Leveraging neural networks to create stunning, one-of-a-kind digital artworks that push the boundaries
+                of creativity.
+            </p>
+            <img src="https://www.marktechpost.com/wp-content/uploads/2023/07/AI-Art-Generator.jpg" alt="AI Art">
+        </div>
+
+        <div class="card reveal">
+            <h3>Project 2: Intelligent Video Editing</h3>
+            <p>
+                Automating video editing with AI to save time and enhance storytelling through smart scene transitions and
+                content-aware adjustments.
+            </p>
+            <img src="https://www.intelligenthq.com/wp-content/uploads/2020/08/AI-Video-Editing.jpg" alt="Video Editing">
+        </div>
+
+        <div class="card reveal">
+            <h3>Project 3: AI-Powered Content Recommendations</h3>
+            <p>
+                Using machine learning algorithms to personalize media recommendations for a better user experience.
+            </p>
+            <img src="https://www.aimunch.com/wp-content/uploads/2022/05/AI-Content-Recommendation.jpg" alt="Content Recommendations">
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>Contact us: <a href="mailto:info@ai-digitalmedia.com">info@ai-digitalmedia.com</a></p>
+        <p>&copy; 2024 AI & Digital Media</p>
+    </footer>
+</body>
+</html>
